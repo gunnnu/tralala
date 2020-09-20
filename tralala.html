@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Tralala</title>
+<style>
+    
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+    
+    ::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px dimgray;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb{
+        background: silver;
+        box-shadow: inset 0 0 5px black;
+        border-radius: 10px;
+    }
+    
+    html {
+        height: 100%;
+    }
+     body {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://great-learning.s3.ap-south-1.amazonaws.com/week-2/images/bg-rain-drops-on-window-shield.jpg");
+            background-attachment:fixed;
+            background-size:cover;
+            background-repeat: no-repeat;
+            margin: auto;
+        }
+    
+        div {
+
+            display: block;
+        }
+        button{
+            color: white;
+            background-color: olive;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin: 0px 10px 10px 0px;
+            cursor: pointer;
+        }
+        button:hover{
+            opacity: 0.7;
+        }
+        input{
+            width: 100%;
+            border: none;
+            border-radius: 2px;
+            outline: none;
+            color: white;
+            font-size: 1em;
+            color: black;
+        }
+        #search{
+            width: 120px;
+            padding: 4px 0.5em;
+            border: none;
+            border-radius: 2px;
+            outline: none;
+            background-color: rgba( 64, 144, 172, 1 );
+            color: white;
+            font-size: 1.15em;
+            line-height: 1.4;
+            color: black;
+        }
+        #search:focus{
+            outline: none;
+            background-color: white;
+        }
+
+        .blocks{
+            display:inline-block;
+            width:240px;
+            background: rgba( 240, 240, 240, 0.9 );
+            margin: 10px;
+            border-radius: 8px;
+            vertical-align: top;
+             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        
+        .firstdiv{
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            background-color: rgba(64,144,172,0.65);
+            text-align: center;
+            padding-top: 10px;
+        }
+        .secdiv{
+            width: 100%;
+            height: 35px;
+            position: fixed;
+            top: 60px;
+            background-color: rgba(128,128,128,0.3);
+            padding: 15px 10px 0px 10px;
+            color: white;
+            font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+        }
+        .imgicon{
+            display: inline;
+            background-color: rgba( 64, 144, 172, 1 ); 
+            padding: 8px;
+            color: white;
+            font-size: 0.9em;
+        }
+        .imgicon:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .container{
+            min-height:auto;
+            height: auto;
+            display:flex;
+            flex-direction: column;
+            white-space: nowrap;
+            padding: 20px;
+
+        }
+        .content{
+            padding: 10px;
+            font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+            color: #555;
+
+        }
+        .content-title{
+            background-color: white;
+            border:none;
+            border-radius: 4px;
+            margin:10px 0px ;
+            padding: 10px;
+        }
+        .left{
+            float: left;
+            padding-left: 25px;
+        }
+
+        .right{
+            float: right;
+            padding-right: 25px;
+            margin-top: 5px;
+        }
+        .inline{
+            display: inline;
+            font-family: "Comic Sans", "Comic Sans MS", cursive;
+            font-size: 1.2em;
+        }
+        #Heading{
+            margin-left: -200px;
+            font-size: 1.3em;
+            color: white;
+        }
+    
+        .fa-plus:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .fa-pencil-alt{
+            visibility: hidden;
+        }
+        div>span:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .content-title:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .content-title:hover .fa-pencil-alt{
+            visibility: visible;
+        }
+    
+    .newcard{
+        display:none;
+    }
+    #newlistaddbutt{
+        display: none;
+    }
+
+</style>
+</head>
+<body>
+<div class="firstdiv" style="text-align: center;">
+        <div class="inline left">
+            <i class="fas fa-home imgicon"></i>
+            <i class="fas fa-th-list imgicon"><span style="font-family: sans-serif;font-size: 0.9em; font-weight:normal"> Boards</span></i>
+            <input id="search" type="text">
+        </div>
+        <div id="Heading" class="inline">Tralala</div>
+        <div class="inline right">
+             <i class="fas fa-plus imgicon"></i>
+             <i class="fas fa-user imgicon"></i>
+        </div>
+</div>
+<div class="secdiv">
+    Frontend Training<span class="fas fa-ellipsis-v right"> Show Menu</span>
+</div>
+<div style="width: 100%; height: 100px;"></div>
+<div class="container">
+    <div>
+    <div id="list1" class="blocks">
+        <div  class="content">
+            <b>TO DO</b><span style="float:right;">...</span><br>
+            <div>
+            <div class="content-title">Learn HTML<i class="fas fa-pencil-alt right"style="margin-right: -20px;"></i></div>
+            <div class="content-title">Learn CSS<i class="fas fa-pencil-alt right"style="margin-right: -20px;"></i></div>
+            <div class="content-title">Learn JavaScript<i class="fas fa-pencil-alt right" style="margin-right: -20px;"></i></div>
+            </div>
+             <span class="newcardtrig">+ Add Another card</span>
+            <div class="newcard"><div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter a title for this card..."></div>
+            <button onclick="uppdateList(this)">Add Card</button><i class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    <div id= "list2"class="blocks">
+        <div class="content">
+            <b>Doing</b><span style="float:right;">...</span><br>
+            <div>
+            <div class="content-title">Prepare resume</div>
+            </div>
+            <span class="newcardtrig">+ Add Another card</span>
+            <div class="newcard"><div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter a title for this card..."></div>
+            <button onclick="uppdateList(this)">Add Card</button><i class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    <div id="list3" class="blocks">
+        <div class="content">
+            <b>Testing/Verifying</b><span style="float:right;">...</span><br>
+            <div>
+            <div class="content-title">Twitter app frontend</div>
+            </div>
+             <span class="newcardtrig">+ Add Another card</span>
+            <div class="newcard"><div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter a title for this card..."></div>
+            <button onclick="uppdateList(this)">Add Card</button><i class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    <div id="list4" class="blocks">
+        <div class="content">
+            <b>Deploying</b><span style="float:right;">...</span><br>
+            <div>
+            <div class="content-title">Twitter app backend</div>
+            </div>
+             <span class="newcardtrig">+ Add Another card</span>
+            <div class="newcard"><div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter a title for this card..."></div>
+            <button onclick="uppdateList(this)">Add Card</button><i class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    <div id="list5" class="blocks">
+        <div class="content">
+            <b>Done</b><span style="float:right;">...</span><br>
+            <div>
+            </div>
+             <span class="newcardtrig">+ Add Another card</span>
+            <div class="newcard"><div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter a title for this card..."></div>
+            <button onclick="uppdateList(this)">Add Card</button><i class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    <div id="newlist" class="blocks">
+        <div class="content">
+            <span id="newlistname">+ Add Another list</span>
+            <div id="newlistaddbutt">
+            <div class="content-title" ><input type="text"  style="padding: 10px 0px" placeholder="Enter list title..."></div>
+            <button onclick="createList(this)">Add List</button><i id="listclose" class="fas fa-plus" style="transform: rotate(45deg); font-size: 1.7em;"></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="display: flex;flex-grow: 1;"></div>
+</div>
+
+<script>
+    var nextlistitem=0;
+    var numofnewlist=function(){
+        var totallists=document.getElementsByClassName('blocks');
+        nextlistitem= totallists.length;
+        return (nextlistitem);
+        }
+    
+    var blockid=null;
+    var closeid=null;
+    
+        $("#newlistname").on('click', function(){
+       var listButtonshow=document.getElementById('newlistaddbutt')
+        listButtonshow.style.display="contents";
+        var hidebutton=document.getElementById("newlistname")
+        hidebutton.style.display="none";
+        });
+   
+        $("#listclose").on('click', function(){
+          var listButtonshow=document.getElementById('newlistaddbutt')
+            listButtonshow.style.display="none";
+            var hidebutton=document.getElementById("newlistname")
+            hidebutton.style.display="contents";
+            });
+
+    
+    $('.newcardtrig').on('click', function(){
+       blockid=$(this).parent().parent().attr('id');
+    var newCard=document.getElementById(blockid).children[0].children;
+        newCard[newCard.length-1].style.display="contents";
+    var hidebutton=document.getElementById(blockid).children[0].children;
+        newCard[newCard.length-2].style.display="none";
+        });
+   
+    $('.fa-plus').on('click', function(){
+       closeid=$(this).parent().parent().attr('id');
+    var newCard=document.getElementById(blockid).children[0].children;
+        newCard[newCard.length-1].style.display="none";
+    var hidebutton=document.getElementById(blockid).children[0].children;
+        newCard[newCard.length-2].style.display="contents";
+        });
+    
+    function uppdateList(elem){
+        
+        var idef=$(elem).parent().parent().parent().attr('id');
+        var val=document.getElementById(idef).children[0].children;
+        var inputval=val[val.length-1].children[0].children[0];
+        if(inputval.value!=""){
+        var cardnew=document.createElement('div');
+        cardnew.textContent=inputval.value;
+        cardnew.setAttribute('class','content-title');
+        var cards =document.getElementById(idef).children[0].children;
+        cards[cards.length-3].appendChild(cardnew);
+        inputval.value="";
+        }
+    }
+    
+    
+  
+     function createList(elem){
+        var listid="list"+numofnewlist();
+         console.log(listid);
+        var idef=$(elem).parent().parent().parent().attr('id');
+        var val=document.getElementById(idef).children[0].children;
+        var inputval=val[val.length-1].children[0].children[0];
+       console.log(inputval.value);
+         if(inputval.value!=""){
+        var listnew=document.createElement('div');
+            listnew.setAttribute('id',listid);
+            listnew.setAttribute('class','blocks');
+        var contentnew=document.createElement('div');
+             contentnew.setAttribute('class','content'); 
+             contentnew.textContent="<b>"+inputval.value+"</b><br>";
+        var maindiv=document.createElement('div');
+        var createaddbutton = document.createElement('span');
+             createaddbutton.setAttribute('class','newcardtrig');
+             createaddbutton.textContent="+ Add Another card";
+        var textbox=document.createElement('div');
+             textbox.setAttribute('class','newcard');
+        var textboxchild=document.createElement('div');
+             textboxchild.setAttribute('class','content-title');
+        var input = document.createElement('input');
+             input.setAttribute('type','text');
+             input.setAttribute('style','padding: 10px 0px');
+             input.setAttribute('placeholder','Enter a title for this card...');
+        var buttonadder=document.createElement('button');
+             buttonadder.setAttribute('onclick','uppdateList(this)');
+             buttonadder.textContent="Add Card";
+        var cross=document.createElement('i');
+             cross.setAttribute('class','fas fa-plus');
+             cross.setAttribute('style','transform: rotate(45deg); font-size: 1.7em;');
+             
+             textboxchild.append(input);
+             textbox.append(textboxchild);
+             
+             buttonadder.append(cross);
+             
+             contentnew.append(maindiv);
+             contentnew.append(createaddbutton);
+             contentnew.append(textbox);
+             contentnew.append(buttonadder);
+                
+             listnew.appendChild(contentnew);
+             var base=document.getElementsByClassName('container')[0];
+             base.append(listnew);
+             console.log(base);
+             
+        inputval.value="";
+        
+         }
+         
+         
+         
+    }
+    
+</script>
+</body>
+</html>
